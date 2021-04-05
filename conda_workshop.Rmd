@@ -107,7 +107,7 @@ conda config --add channels conda-forge
 * If necessary, `source .bashrc`
 
 ### Google AI Notebooks
-Conda is pre-loaded in Google AI Notebooks. But you should still set up a `.condarc`.
+**NOTE:** Conda is pre-loaded in Google AI Notebooks. But you should still set up a `.condarc`.
 
 ### Installing software with conda
 A good starting point is:
@@ -133,7 +133,7 @@ A better solution is to create a dedicated environment for specific versions suc
 * You can install packages at the same time as you create:
 `conda env create -n <name> <pkg1=v###> <pkg2=v###>...`
 
-**Try it**
+**TRY IT:**
 `conda create -n py27 python=2.7 pandas scipy numpy nb_conda_kernels`
 
 **NOTE:** _You need to install_ `nb_conda_kernels` _to use the environment in JupyterLab._
@@ -147,10 +147,19 @@ A better solution is to create a dedicated environment for specific versions suc
 * You will now be able to choose which environment you want to use within the notebook itself!
 * I recommend creating a personal conda environment and adding `activate <myenv>` to your `.bashrc` file.
 
+**TRY IT:**
+1. Create an environment
+`conda create -n myenv ipykernel r-ggplot2 r-irkernel r-tidyverse r-ggplot2 nb_conda_kernels r-rmarkdown r-markdown pandas numpy scipy seaborn -y`
+
+1. Look at the top right where you can select a kernel. You will see all of the environments you have created (in which you also installed `nb_conda_kernels`) for each language (e.g. Python, R, ...)
+
+1. Also, you will see these environments on the "launcher" (`+` sign or File > New Launcher). If you create a new notebook from the file menu you will be asked to select a kernel. Finally, you can change the kernel at any time!
+
 
 
 
 ## Warning! Mixing and matching Conda and !Conda
+For example, `apt`, `make && make install`.
 
 ```{python}
 from IPython.display import YouTubeVideo
@@ -177,6 +186,8 @@ If Jupytext still isn't available, you can try
 ```
 jupyter labextension install jupyterlab-jupytext@1.1.1  # for JupyterLab 1.x
 ```
+
+Restart again.
 
 **NOTE:** _AI Notebooks actually run a very old version of Jypter. Therefore you have to be careful about installing extensions. You need to use the command as shown which activates the version of Jupytext for older Jupyter._
 
@@ -213,7 +224,3 @@ output:
 ```
 
     to the YAML preamble. If you are using `html_document` you should switch to `html_notebook`, for like a zillion reasons.
-
-```{python}
-
-```
